@@ -1,0 +1,5 @@
+{
+  "name": "Professor Hippo Health Anxiety Questionnaire",
+  "description": "An interactive questionnaire to help users understand the triggers and patterns associated with health anxiety. The app provides a detailed, AI-generated summary based on user answers and offers CBT-based tools for coping.",
+  "requestFramePermissions": []
+}
