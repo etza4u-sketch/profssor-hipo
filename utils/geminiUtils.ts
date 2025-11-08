@@ -2,7 +2,7 @@ import { GoogleGenAI } from '@google/genai';
 import type { GenerateContentParameters, GenerateContentResponse } from '@google/genai';
 
 const MAX_RETRIES = 5;
-const INITIAL_DELAY_MS = 1500;
+const INITIAL_DELAY_MS = 2000; // Increased initial delay for retries
 
 // Internal function with retry logic. Not exported.
 const generateContentWithRetry = async (
@@ -63,11 +63,11 @@ async function processQueue() {
   } catch (error) {
     reject(error);
   } finally {
-    // Wait a short time before processing the next item to space out requests.
+    // Wait longer between processing items to stay within API limits.
     setTimeout(() => {
         isProcessing = false;
         processQueue();
-    }, 1000); // 1-second delay
+    }, 12000); // Increased delay to 12 seconds to enforce ~5 RPM limit
   }
 }
 
